@@ -46,6 +46,9 @@ function DarkroomTerms() {
         <button onClick={handlePrev}>Previous</button>
         <button onClick={handleNext}>Next</button>
       </div>
+      <p>
+        {currentIndex + 1} of {terms.length}
+      </p>
     </div>
   );
 }
