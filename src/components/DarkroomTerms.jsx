@@ -43,8 +43,16 @@ function DarkroomTerms() {
     <div className="flashcard-container">
       <Flashcard term={terms[currentIndex].term} definition={terms[currentIndex].definition} />
       <div className="arrows">
-        <button onClick={handlePrev}>Previous</button>
-        <button onClick={handleNext}>Next</button>
+        <button 
+          onClick={handlePrev} 
+          disabled={currentIndex == 0}
+          style={{ color: currentIndex == 0 ? 'gray' : 'black' }}
+          > Previous</button>
+        <button 
+          onClick={handleNext}
+          disabled={currentIndex == terms.length - 1}
+          style={{ color: currentIndex == terms.length - 1 ? 'gray' : 'black' }}
+          >Next</button>
       </div>
       <p>
         {currentIndex + 1} of {terms.length}
