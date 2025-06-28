@@ -32,3 +32,56 @@
   font-size: 1rem;
   cursor: pointer;
 }
+
+.arrows {
+  margin: 20px;
+}
+
+.flashcard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.flashcard-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flashcard-form.correct input {
+  border-color: green;
+}
+
+.flashcard-form.incorrect input {
+  border-color: red;
+}
+
+.flashcard-form input {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  border: 2px solid black; /* Default border color */
+  outline: none; /* Remove default focus outline */
+}
+
+.flashcard-form input:focus {
+  border-color: black; /* Ensure border stays black when focused */
+}
+
+.flashcard-form.correct input {
+  border-color: green; /* Border color when correct */
+}
+
+.flashcard-form.incorrect input {
+  border-color: red; /* Border color when incorrect */
+}
+
+.flashcard-form.incorrect input:focus {
+  border-color: red; /* Keep red border only if incorrect */
+}
+
+.flashcard-form button {
+  margin: 10px;
+}

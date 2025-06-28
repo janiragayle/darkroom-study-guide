@@ -31,28 +31,76 @@ function DarkroomTerms() {
     },
   ];
 
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % terms.length);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [guess, setGuess] = useState("");
+  const [isCorrect, setIsCorrect] = useState(null);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % terms.length);
+    setGuess("");
+    setIsCorrect(null);
+  };
+  const handlePrev = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + terms.length) % terms.length
+    );
+    setGuess("");
+    setIsCorrect(null);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (guess.toLowerCase() === terms[currentIndex].term.toLowerCase()) {
+      setIsCorrect(true);
+    } else {
+      setIsCorrect(false);
     }
-    const handlePrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + terms.length) % terms.length);
-    }
+  };
 
   return (
     <div className="flashcard-container">
-      <Flashcard term={terms[currentIndex].term} definition={terms[currentIndex].definition} />
+      <Flashcard
+        term={terms[currentIndex].term}
+        definition={terms[currentIndex].definition}
+      />
+      <form
+        className={`flashcard-form ${
+          isCorrect === null ? "" : isCorrect ? "correct" : "incorrect"
+        }`}
+        onSubmit={handleSubmit}
+      >
+        <label htmlFor="guess"> Guess here!</label>
+        <input
+          type="text"
+          id="guess"
+          value={guess}
+          onChange={(e) => setGuess(e.target.value)}
+          style={{
+            width: "100%",
+            padding: "5px",
+            fontSize: "16px",
+          }}
+        />
+        <button type="submit" style={{ margin: "10px" }}>
+          Submit
+        </button>
+      </form>
       <div className="arrows">
-        <button 
-          onClick={handlePrev} 
+        <button
+          onClick={handlePrev}
           disabled={currentIndex == 0}
-          style={{ color: currentIndex == 0 ? 'gray' : 'black' }}
-          > Previous</button>
-        <button 
+          style={{ color: currentIndex == 0 ? "gray" : "black" }}
+        >
+          {" "}
+          Previous
+        </button>
+        <button
           onClick={handleNext}
           disabled={currentIndex == terms.length - 1}
-          style={{ color: currentIndex == terms.length - 1 ? 'gray' : 'black' }}
-          >Next</button>
+          style={{ color: currentIndex == terms.length - 1 ? "gray" : "black" }}
+        >
+          Next
+        </button>
       </div>
       <p>
         {currentIndex + 1} of {terms.length}

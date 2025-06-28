@@ -9,7 +9,7 @@ function Flashcard({ term, definition }) {
   };
   return (
     <div className="flashcard" onClick={handleFlip}>
-        {isFlipped ? (<p>{definition}</p>) : (<h2>{term}</h2>)}
+        {isFlipped ? (<h2>{term}</h2>)  : (<p>{definition}</p>)}
     </div>
   );
 }
