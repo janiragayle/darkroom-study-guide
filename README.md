@@ -4,7 +4,7 @@ Submitted by: **Janira**
 
 This web app: **Study darkroom and film photogrpahy terminology!**
 
-Time spent: **1** hours spent in total
+Time spent: **2** hours spent in total
 
 ## Required Features
 
