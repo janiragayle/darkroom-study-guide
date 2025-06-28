@@ -23,7 +23,7 @@ The following **required** functionality is completed:
   - [x] Clicking on a card flips it over, showing the back with corresponding information 
   - [x] Clicking on a flipped card again flips it back, showing the front
 - [x] **Clicking on the next button displays a random new card**
-- [X ] **The user can enter their guess into an input box *before* seeing the flipside of the card**
+- [X] **The user can enter their guess into an input box *before* seeing the flipside of the card**
   - Application features a clearly labeled input box with a submit button where users can type in a guess
   - Clicking on the submit button with an **incorrect** answer shows visual feedback that it is wrong 
   -  Clicking on the submit button with a **correct** answer shows visual feedback that it is correct
